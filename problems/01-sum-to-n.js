@@ -12,6 +12,19 @@ sumToN(-8)  // returns null
 ***********************************************************************/
 
 // your code here
+const sumToN = num => {
+  // base cases
+  if (num < 0) {
+    return null;
+  }
+  else if (num === 1) {
+    return 1;
+  }
+  else {
+    // resursive case
+    return num + sumToN(num - 1);
+  }
+}
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {
