@@ -15,11 +15,18 @@ const flatten = arr => {
   if (arr.length === 0) {
     return [];
   }
-  else if (arr.length === 1) {
-    return [arr[0]];
-  }
   else {
-    return [arr[0]].concat(flatten(arr[1]));
+    let returnArr = [];
+    arr.forEach((element) => {
+      if (!Array.isArray(element)) {
+        returnArr.push(element);
+      }
+      else {
+        returnArr = returnArr.concat(flatten(element));
+      }
+    });
+
+    return returnArr;
   }
 }
   
