@@ -20,8 +20,22 @@ exponent(2, -2); // 1/4 (or 0.25)
 exponent(5, 5); // 3125
 ***********************************************************************/
 
-function exponent(b, n) {
-  // your code here
+function exponent(num, power) {
+  // base cases
+  if (power === 1) {
+    return num;
+  }
+  else if (power === -1) {
+    return 1 / num;
+  }
+
+  // recursive cases
+  if (power > 0) {
+    return num * exponent(num, power - 1);
+  }
+  else if (power < 0) {
+    return 1 / exponent(num, power * -1);
+  }
 }
   
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
