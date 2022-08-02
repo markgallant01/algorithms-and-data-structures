@@ -11,6 +11,17 @@ flatten([1, [2, [3]]]); // [1, 2, 3]
 ***********************************************************************/
 
 // your code here
+const flatten = arr => {
+  if (arr.length === 0) {
+    return [];
+  }
+  else if (arr.length === 1) {
+    return [arr[0]];
+  }
+  else {
+    return [arr[0]].concat(flatten(arr[1]));
+  }
+}
   
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {
