@@ -13,6 +13,17 @@ reverse(""); // ""
 ***********************************************************************/
 
 // your code here
+const reverse = string => {
+    if (string.length === 0) {
+        return '';
+    }
+    else if (string.length === 1) {
+        return string;
+    }
+    else {
+        return reverse(string.slice(1)) + string[0];
+    }
+}
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {
