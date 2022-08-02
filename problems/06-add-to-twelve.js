@@ -13,6 +13,19 @@ addToTwelve([1]); // false
 ***********************************************************************/
 
 // your code here
+const addToTwelve = arr => {
+    if (arr.length === 1) {
+        return false;
+    }
+    else {
+        if (arr[0] + arr[1] === 12) {
+            return true;
+        }
+        else {
+            return addToTwelve(arr.slice(1));
+        }
+    }
+}
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {
