@@ -40,8 +40,26 @@ times `advancedExponent` is being recursively called.
 ***********************************************************************/
 
 
-function advancedExponent(b, n) {
+function advancedExponent(base, power) {
   // your code here
+  // base cases
+  if (power === 0) {
+    return 1;
+  }
+  else if (power === 1) {
+    return base;
+  }
+
+  // recursive cases
+  // even power
+  if (power % 2 === 0) {
+    return advancedExponent(base, power / 2) * advancedExponent(base, power / 2);
+  }
+  // odd power
+  else {
+    power = power - 1;
+    return base * advancedExponent(base, power / 2) * advancedExponent(base, power / 2);
+  }
 }
 
 
