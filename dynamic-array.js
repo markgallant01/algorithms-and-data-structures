@@ -11,7 +11,16 @@ class DynamicArray {
   }
 
   unshift(val) {
+    let newArr = new Array(this.capacity);
+    newArr[0] = val;
+    this.length += 1; 
 
+    // copy data from old array
+    for (let i = 0; i < this.length; i++) {
+      newArr[i + 1] = this.data[i];
+    }
+
+    this.data = newArr;
   }
 
 }
