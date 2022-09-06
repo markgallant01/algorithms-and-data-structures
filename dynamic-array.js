@@ -17,6 +17,8 @@ class DynamicArray {
 
 
   pop() {
+    this.length -= 1;
+    return this.data[this.length];
   }
 
   shift() {
