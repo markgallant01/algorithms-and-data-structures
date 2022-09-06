@@ -11,6 +11,8 @@ class DynamicArray {
   }
 
   push(val) {
+    this.data[this.length] = val;
+    this.length += 1;
   }
 
 
