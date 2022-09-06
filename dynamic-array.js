@@ -11,6 +11,10 @@ class DynamicArray {
   }
 
   push(val) {
+    if (this.length === this.capacity) {
+      this.resize();
+    }
+
     this.data[this.length] = val;
     this.length += 1;
   }
@@ -33,6 +37,10 @@ class DynamicArray {
   }
 
   unshift(val) {
+    if (this.length === this.capacity) {
+      this.resize();
+    }
+
     for (let i = this.length - 1; i >= 0; i--) {
       this.data[i+1] = this.data[i];
     }
