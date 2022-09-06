@@ -51,6 +51,14 @@ class DynamicArray {
   }
 
   resize () {
+    this.capacity *= 2;
+    let newArr = new Array(this.capacity);
+    
+    for (let i = 0; i < this.length; i++) {
+      newArr[i] = this.data[i];
+    }
+
+    this.data = newArr;
   }
 
 }
