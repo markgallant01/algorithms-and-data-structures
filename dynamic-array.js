@@ -41,6 +41,13 @@ class DynamicArray {
   }
 
   indexOf (val) {
+    for (let i = 0; i < this.length; i++) {
+      if (this.data[i] === val) {
+        return i;
+      }
+    }
+
+    return -1;
   }
 
   resize () {
