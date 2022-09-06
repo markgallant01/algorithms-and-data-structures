@@ -7,7 +7,8 @@ class LinkedListNode {
 
 class LinkedList {
   constructor() {
-    // Your code here
+    this.head = null;
+    this.length = 0;
   }
 
   addToHead(val) {
