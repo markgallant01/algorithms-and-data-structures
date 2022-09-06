@@ -7,6 +7,7 @@ class DynamicArray {
   }
 
   read(index) {
+    return this.data[index];
   }
 
   push(val) {
