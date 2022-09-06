@@ -26,7 +26,21 @@ class LinkedList {
   }
 
   addToTail(val) {
-    // Your code here
+    // see if there's a head node
+    if (this.head) {
+      // get to the last node
+      let node = this.head;
+      while (node.next) {
+        node = node.next;
+      }
+      node.next = new LinkedListNode(val);
+    }
+    else {
+      // list is currently empty
+      this.head = new LinkedListNode(val);
+    }
+
+    this.length += 1;
   }
 
   // You can use this function to help debug
