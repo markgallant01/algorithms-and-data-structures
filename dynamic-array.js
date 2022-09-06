@@ -22,9 +22,15 @@ class DynamicArray {
   }
 
   shift() {
+
   }
 
   unshift(val) {
+    for (let i = this.length - 1; i >= 0; i--) {
+      this.data[i+1] = this.data[i];
+    }
+    this.data[0] = val;
+    this.length += 1;
   }
 
   indexOf (val) {
