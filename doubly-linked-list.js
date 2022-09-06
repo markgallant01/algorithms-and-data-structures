@@ -33,6 +33,22 @@ class DoublyLinkedList {
   }
 
   addToTail(val) {
+    // create new node
+    let node = new DoublyLinkedListNode(val);
+
+    if (this.tail) {
+      // list is not empty, only set tail
+      node.prev = this.tail;
+      node.prev.next = node;
+      this.tail = node;
+    }
+    else {
+      // list is empty, set both head and tail
+      this.head = node;
+      this.tail = node;
+    }
+
+    this.length += 1;
   }
 
   // You can use this function to help debug
