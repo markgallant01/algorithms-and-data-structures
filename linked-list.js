@@ -12,7 +12,17 @@ class LinkedList {
   }
 
   addToHead(val) {
-    // Your code here
+    if (this.head) {
+      let oldHead = this.head;
+
+      this.head = new LinkedListNode(val);
+      this.head.next = oldHead;
+    }
+    else {
+      this.head = new LinkedListNode(val);
+    }
+
+    this.length += 1;
   }
 
   addToTail(val) {
