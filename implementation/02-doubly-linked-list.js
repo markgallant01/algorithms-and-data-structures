@@ -85,9 +85,7 @@ class DoublyLinkedList {
     }
 
     peekAtTail() {
-        // Return value of tail node
-        
-        // Write your hypothesis on the time complexity of this method here
+        return this.tail ? this.tail.value : undefined;
     }
 }
 
