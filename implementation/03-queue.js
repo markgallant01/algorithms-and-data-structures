@@ -28,8 +28,28 @@ class Queue {
 
     dequeue() {
         // Remove node from front of queue (linked list)
-        
-        // Write your hypothesis on the time complexity of this method here
+       
+        // check for empty queue
+        if (this.length === 0) {
+            return null;
+        }
+        else {
+            let removedNode;
+
+            // check for only one node
+            if (this.length === 1) {
+                removedNode = this.head;
+                this.head = null;
+                this.tail = null;
+            }
+            else {
+                removedNode = this.head;
+                this.head = this.head.next;
+            }
+
+            this.length--;
+            return removedNode.value;
+        }
     }
 
 }
