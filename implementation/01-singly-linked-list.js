@@ -113,9 +113,15 @@ class SinglyLinkedList {
     }
 
     print() {
-        // Print out the linked list
-        
-        // Write your hypothesis on the time complexity of this method here
+        // only do something if list is not empty
+        if (this.head) {
+            // print the value of each node
+            let currentNode = this.head;
+            for (let i = 0; i < this.length; i++) {
+                console.log(currentNode.value);
+                currentNode = currentNode.next;
+            }
+        }
     }
 }
 
