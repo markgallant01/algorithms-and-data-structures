@@ -53,9 +53,28 @@ class SinglyLinkedList {
     }
 
     removeFromHead() {
-        // Remove node at head
+        let returnNode;
 
-        // Write your hypothesis on the time complexity of this method here
+        // return undefined if the list is empty
+        if (!this.head) {
+            return returnNode;
+        }
+        else {
+            // make sure there's a node after the 1st to point to
+            if (this.head.next) {
+                returnNode = this.head;
+                this.head = this.head.next;
+                this.length -= 1;
+                return returnNode;
+            }
+            else {
+                // list is only one node long, head sets to null
+                returnNode = this.head;
+                this.head = null;
+                this.length -= 1;
+                return returnNode;
+            }
+        }
     }
 
     removeFromTail() {
