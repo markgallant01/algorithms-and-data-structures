@@ -109,9 +109,7 @@ class SinglyLinkedList {
     }
 
     peekAtHead() {
-        // Return value of head node
-
-        // Write your hypothesis on the time complexity of this method here
+        return this.head ? this.head.value : undefined;
     }
 
     print() {
