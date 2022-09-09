@@ -22,11 +22,13 @@ class HashTable {
   }
 
   hash(key) {
-    // Your code here
+    let hexString = sha256(key).toString().slice(0,8);
+    return parseInt(hexString, 16);
   }
 
   hashMod(key) {
-    // Your code here
+    let shaInt = this.hash(key);
+    return shaInt % this.data.length;
   }
 
   insertNoCollisions(key, value) {
