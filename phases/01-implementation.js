@@ -31,7 +31,19 @@ class HashTable { // get O(1), set O(1), deleteKey O(1)
 
 
   insert(key, value) {
-    // Your code here
+    let newNode = new KeyValuePair(key, value);
+    let index = this.hashMod(newNode.key);
+
+    // check for collision
+    if (this.data[index]) {
+      newNode.next = this.data[index];
+      this.data[index] = newNode;
+    }
+    else {
+      this.data[index] = newNode;
+    }
+
+    this.count++;
   }
 
 
