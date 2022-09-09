@@ -68,22 +68,6 @@ class HashTable { // get O(1), set O(1), deleteKey O(1)
 
   }
 
-  _doesKeyExist(firstNode, key) {
-    // search a linked list starting with 'firstNode' for 'key'
-    let currentNode = firstNode;
-    while (currentNode) {
-      if (currentNode.key === key) {
-        return true;
-      }
-      else {
-        currentNode = currentNode.next;
-      }
-    }
-
-    return false;
-  }
-
-
   read(key) {
     // Your code here
   }
