@@ -72,12 +72,22 @@ class HashTable { // get O(1), set O(1), deleteKey O(1)
     let index = this.hashMod(key);
     let node = this.data[index];
 
-    if (node.key === key) {
-      return node.value;
-    }
-    else {
+    // check if any value was found
+    if (!node) {
       return undefined;
     }
+    else {
+      // loop through found nodes for matching key
+      while (node) {
+        if (node.key === key) {
+          return node.value;
+        }
+        else {
+          node = node.next;
+        }
+      }
+    }
+
   }
 
 
