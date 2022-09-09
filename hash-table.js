@@ -63,7 +63,41 @@ class HashTable {
   }
 
   insert(key, value) {
-    // Your code here
+    let newNode = new KeyValuePair(key, value);
+    let index = this.hashMod(newNode.key);
+
+    // check for collision
+    if (this.data[index]) {
+      // look for key in linked list
+      let collision = true;
+      let currentNode = this.data[index];
+      while (currentNode) {
+        if (currentNode.key === newNode.key) {
+          // update the value
+          currentNode.value = newNode.value;
+          collision = false;
+
+          // stop loop
+          currentNode = false;
+        }
+        else {
+          // keep looking through linked list
+          currentNode = currentNode.next;
+        }
+      }
+
+      // if collision then add newNode to linked list
+      if (collision) {
+        newNode.next = this.data[index];
+        this.data[index] = newNode;
+        this.count++;
+      }
+    }
+    else {
+      this.data[index] = newNode;
+      this.count++;
+    }
+
   }
 
 }
