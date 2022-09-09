@@ -36,14 +36,51 @@ class HashTable { // get O(1), set O(1), deleteKey O(1)
 
     // check for collision
     if (this.data[index]) {
-      newNode.next = this.data[index];
-      this.data[index] = newNode;
+      // check list for matching key
+      let collision = true;
+      let currentNode = this.data[index];
+
+      while (currentNode) {
+        if (currentNode.key === newNode.key) {
+          // key match, no collision. update key.
+          currentNode.value = newNode.value;
+          collision = false;
+          currentNode = null;     // end loop
+        }
+        else {
+          currentNode = currentNode.next;
+        }
+      }
+
+      // check for collision
+      if (collision) {
+        // add node to list
+        newNode.next = this.data[index];
+        this.data[index] = newNode;
+        this.count++;
+      }
+
     }
     else {
       this.data[index] = newNode;
+      this.count++;
     }
 
-    this.count++;
+  }
+
+  _doesKeyExist(firstNode, key) {
+    // search a linked list starting with 'firstNode' for 'key'
+    let currentNode = firstNode;
+    while (currentNode) {
+      if (currentNode.key === key) {
+        return true;
+      }
+      else {
+        currentNode = currentNode.next;
+      }
+    }
+
+    return false;
   }
 
 
