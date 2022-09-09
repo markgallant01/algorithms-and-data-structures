@@ -92,7 +92,33 @@ class HashTable { // get O(1), set O(1), deleteKey O(1)
 
 
   resize() {
-    // Your code here
+    let newCapacity = this.capacity * 2;
+    let newData = new Array(newCapacity).fill(null);
+
+    // iterate the old list and generate list of key-value pairs
+    let keyValuePairs = [];
+    for (let i = 0; i < this.capacity; i++) {
+      if (this.data[i]) {
+        let currentPair = this.data[i];
+        while (currentPair) {
+          keyValuePairs.push({key: currentPair.key, 
+                              value: currentPair.value});
+          currentPair = currentPair.next;
+        }
+      }
+    }
+
+    // update capacity and data, reset count;
+    this.capacity = newCapacity;
+    this.data = newData;
+    this.count = 0;
+
+    // rehash and insert all the old values to the new data list
+    for (let i = 0; i < keyValuePairs.length; i++) {
+      let pair = keyValuePairs[i];
+      this.insert(pair.key, pair.value);
+    }
+
   }
 
 
