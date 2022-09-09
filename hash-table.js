@@ -11,7 +11,14 @@ class KeyValuePair {
 class HashTable {
 
   constructor(numBuckets = 4) {
-    // Your code here
+    this.count = 0;
+    this.capacity = numBuckets;
+    this.data = new Array(numBuckets);
+
+    // set each array element to null
+    for (let i = 0; i < this.data.length; i++) {
+      this.data[i] = null;
+    }
   }
 
   hash(key) {
