@@ -69,7 +69,15 @@ class HashTable { // get O(1), set O(1), deleteKey O(1)
   }
 
   read(key) {
-    // Your code here
+    let index = this.hashMod(key);
+    let node = this.data[index];
+
+    if (node.key === key) {
+      return node.value;
+    }
+    else {
+      return undefined;
+    }
   }
 
 
