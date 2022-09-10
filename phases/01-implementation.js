@@ -31,6 +31,11 @@ class HashTable { // get O(1), set O(1), deleteKey O(1)
 
 
   insert(key, value) {
+    // check if we need to resize
+    if (this.count > this.capacity * 0.75) {
+      this.resize();
+    }
+
     let newNode = new KeyValuePair(key, value);
     let index = this.hashMod(newNode.key);
 
@@ -123,8 +128,45 @@ class HashTable { // get O(1), set O(1), deleteKey O(1)
 
 
   delete(key) {
-    // Your code here
+    let index = this.hashMod(key);
+    
+    // undefined if nothing there
+    if (!this.data[index]) {
+      return 'Key not found';
+    }
+    else {
+      // check first node for match
+      let currentNode = this.data[index];
+      if (currentNode.key === key) {
+        // delete node
+        this.data[index] = currentNode.next;
+        this.count--;
+        return 0;
+      }
+      else {
+        // traverse list looking for matching key
+        let prevNode = currentNode;
+        currentNode = currentNode.next
+        while (currentNode) {
+          if (currentNode.key === key) {
+            // delete node
+            prevNode.next = currentNode.next;
+            this.count--;
+            return 0;
+          }
+          else {
+            prevNode = currentNode;
+            currentNode = currentNode.next;
+          }
+        }
+
+        // key not found
+        return 'Key not found';
+      }
+    }
+
   }
+
 }
 
 
