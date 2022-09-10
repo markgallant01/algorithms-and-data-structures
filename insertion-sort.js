@@ -18,7 +18,36 @@ function insertionSort(arr) {
   Return the sorted array
   */
 
-  // Your code here
+  let unsorted = arr.slice();
+  let sorted = [];
+  while (unsorted.length > 0) {
+    console.log(sorted.join(','));
+
+    let x = unsorted.pop(); 
+    if (sorted.length === 0) {
+      sorted[0] = x;
+    }
+    else {
+
+      for (let i = sorted.length - 1; i >= -1; i--) {
+        if (i === -1) {
+          sorted[0] = x;
+        }
+        else {
+          if (sorted[i] < x) {
+            sorted[i+1] = x;
+            break;
+          }
+          else {
+            sorted[i+1] = sorted[i];
+          }
+        }
+      }
+
+    }
+  }
+
+  return sorted;
 }
 
 // In-place Insertion Sort
