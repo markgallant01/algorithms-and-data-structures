@@ -74,7 +74,23 @@ function commonElements(arr1, arr2) {
 
 
 function duplicate(arr) {
-  // Your code here
+  // create object storing the count of each num
+  let count = {};
+  arr.forEach((num) => {
+    if (count[num]) {
+      count[num]++;
+    }
+    else {
+      count[num] = 1;
+    }
+  });
+
+  // return whatever count is > 1
+  for (const num in count) {
+    if (count[num] > 1) {
+      return parseInt(num);
+    }
+  }
 }
 
 
