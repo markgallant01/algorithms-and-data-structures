@@ -19,7 +19,21 @@ function oddEvenSort(arr) {
 }
 
 function validAnagrams(s, t) {
-  // Your code here
+  s = s.split('');
+  t = t.split('');
+
+  s.sort();
+  t.sort();
+
+  s = s.join('');
+  t = t.join('');
+
+  if (s === t) {
+    return true;
+  }
+  else {
+    return false;
+  }
 }
 
 function reverseBaseSort(arr) {
