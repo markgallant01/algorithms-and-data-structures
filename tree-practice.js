@@ -15,7 +15,13 @@ function findMinBST (rootNode) {
 }
 
 function findMaxBST (rootNode) {
-  // Your code here
+  // keep going right until there are no more nodes
+  if (!rootNode.right) {
+    return rootNode.val;
+  }
+  else {
+    return findMaxBST(rootNode.right);
+  }
 }
 
 function findMinBT (rootNode) {
