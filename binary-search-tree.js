@@ -121,10 +121,23 @@ class BinarySearchTree {
 
 
   postOrderTraversal(currentNode = this.root) {
-    // Your code here
+    // base case
+    if (!currentNode) {
+      return;
+    }
+    else {
+      // print any left nodes
+      this.postOrderTraversal(currentNode.left);
+
+      // print any right nodes
+      this.postOrderTraversal(currentNode.right);
+
+      // print current node
+      console.log(currentNode.val);
+    }
   }
 
-    // Breadth First Traversal - Iterative
+  // Breadth First Traversal - Iterative
   breadthFirstTraversal() {
     // your code here
   }
@@ -132,7 +145,7 @@ class BinarySearchTree {
   // Depth First Traversal - Iterative
   depthFirstTraversal() {
     // your code here
-}
+  }
 }
 
 module.exports = { BinarySearchTree, TreeNode };
