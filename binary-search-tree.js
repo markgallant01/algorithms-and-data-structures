@@ -50,8 +50,37 @@ class BinarySearchTree {
 
   }
 
-  search(val) {
-    // Your code here
+  search(val, currentNode = this.root) {
+
+    // check for empty BST
+    if (!this.root) {
+      return false;
+    }
+    else {
+
+      // check current node
+      if (currentNode.val === val) {
+        return true;
+      }
+      else {
+        
+        // check left
+        if (val < currentNode.val && currentNode.left) {
+          return this.search(val, currentNode.left);
+        }
+
+        // or check right
+        else if (val > currentNode.val && currentNode.right) {
+          return this.search(val, currentNode.right);
+        }
+
+        else {
+          return false;
+        }
+
+      }
+      
+    }
   }
 
 
