@@ -85,12 +85,38 @@ class BinarySearchTree {
 
 
   preOrderTraversal(currentNode = this.root) {
-    // Your code here
+    // base case
+    if (!currentNode) {
+      return;
+    }
+    else {
+      // print current node
+      console.log(currentNode.val);
+
+      // print all nodes to the left
+      this.preOrderTraversal(currentNode.left);
+
+      // and all nodes to the right
+      this.preOrderTraversal(currentNode.right);
+    }
   }
 
 
   inOrderTraversal(currentNode = this.root) {
-    // Your code here
+    // base case
+    if (!currentNode) {
+      return;
+    }
+    else {
+      // print all nodes to the left
+      this.inOrderTraversal(currentNode.left);
+
+      // print current node
+      console.log(currentNode.val);
+
+      // print all nodes to the right
+      this.inOrderTraversal(currentNode.right);
+    }
   }
 
 
