@@ -14,7 +14,40 @@ class BinarySearchTree {
   }
 
   insert(val, currentNode=this.root) {
-    // Your code here
+    let newNode = new TreeNode(val);
+
+    if (!this.root) {
+      // empty BST, insert at root
+      this.root = newNode;
+    }
+    else {
+      
+      // left
+      if (newNode.val < currentNode.val) {
+        if (!currentNode.left) {
+          // insert at left
+          currentNode.left = newNode;
+        }
+        else {
+          // move left down the tree
+          this.insert(newNode.val, currentNode.left);
+        }
+      }
+
+      // right
+      else {
+        if (!currentNode.right) {
+          // insert at right
+          currentNode.right = newNode;
+        }
+        else {
+          // move right down the tree
+          this.insert(newNode.val, currentNode.right);
+        }
+      }
+
+    }
+
   }
 
   search(val) {
