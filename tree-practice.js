@@ -25,7 +25,26 @@ function findMaxBST (rootNode) {
 }
 
 function findMinBT (rootNode) {
-  // Your code here
+  let stack = [];
+  stack.push(rootNode);
+  let minVal = rootNode.val;
+
+  while (stack.length > 0) {
+    // check every value in the tree against the min val
+    // first pop off current value
+    let currentNode = stack.pop();
+    
+    // compare it
+    if (currentNode.val < minVal) {
+      minVal = currentNode.val;
+    }
+
+    // push any child nodes to the stack
+    if (currentNode.left) stack.push(currentNode.left);
+    if (currentNode.right) stack.push(currentNode.right);
+  }
+
+  return minVal;
 }
 
 function findMaxBT (rootNode) {
