@@ -91,11 +91,31 @@ function getHeight (rootNode) {
 }
 
 function balancedTree (rootNode) {
-  // Your code here
+  let leftHeight = getHeight(rootNode.left);
+  let rightHeight = getHeight(rootNode.right);
+
+  if ((leftHeight === rightHeight) ||
+      (leftHeight === rightHeight - 1) ||
+      (leftHeight === rightHeight + 1)) {
+    return true;
+  }
+  else {
+    return false;
+  }
 }
 
-function countNodes (rootNode) {
-  // Your code here
+function countNodes (rootNode, sum=0) {
+  if (!rootNode) {
+    return 0;
+  }
+  else if (!rootNode.left && !rootNode.right) {
+    return 1; 
+  }
+  else {
+    sum = 1 + countNodes(rootNode.left) + countNodes(rootNode.right);
+  }
+
+  return sum;
 }
 
 function getParentNode (rootNode, target) {
