@@ -91,17 +91,6 @@ function getHeight (rootNode) {
 }
 
 function balancedTree (rootNode) {
-  let leftHeight = getHeight(rootNode.left);
-  let rightHeight = getHeight(rootNode.right);
-
-  if ((leftHeight === rightHeight) ||
-      (leftHeight === rightHeight - 1) ||
-      (leftHeight === rightHeight + 1)) {
-    return true;
-  }
-  else {
-    return false;
-  }
 }
 
 function countNodes (rootNode, sum=0) {
@@ -119,7 +108,14 @@ function countNodes (rootNode, sum=0) {
 }
 
 function getParentNode (rootNode, target) {
-  // Your code here
+  if (rootNode.val === target) {
+    return null;
+  }
+  else {
+
+    
+
+  }
 }
 
 function inOrderPredecessor (rootNode, target) {
