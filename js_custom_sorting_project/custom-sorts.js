@@ -37,7 +37,6 @@ function validAnagrams(s, t) {
 }
 
 function reverseBaseSort(arr) {
-  // Your code here
 }
 
 function frequencySort(arr) {
